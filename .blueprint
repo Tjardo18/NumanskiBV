@@ -1,0 +1,15 @@
+created:
+    - database/factories/CustomerFactory.php
+    - database/factories/ContactFactory.php
+    - database/factories/ConversationFactory.php
+    - database/migrations/2024_02_09_123729_create_customers_table.php
+    - database/migrations/2024_02_09_123730_create_contacts_table.php
+    - database/migrations/2024_02_09_123731_create_conversations_table.php
+    - app/Models/Customer.php
+    - app/Models/Contact.php
+    - app/Models/Conversation.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Customer: { company: 'boolean nullable', companyname: 'string nullable', kvknr: 'integer nullable', firstname: string, surname: string, street: string, housenumber: integer, postalcode: string, city: string, email: string, phone: string, function: 'string nullable' }
+    Contact: { firstname: string, surname: string, street: string, housenumber: integer, postalcode: string, city: string, email: string, phone: string, function: 'string nullable' }
+    Conversation: { date: date, time: time, duration: integer, notes: 'string nullable', relationships: { belongsTo: 'Customer, Contact' } }
